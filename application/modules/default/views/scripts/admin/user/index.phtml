@@ -1,0 +1,15 @@
+<p><a href="<?php echo $this->url(
+    array(
+        'controller' => 'admin/user',
+        'action'     => 'list'
+    ),
+    'default',
+    true) ?>">List users</a></p>
+ 
+User entries: <br />
+<dl>
+    <?php foreach ($this->users as $user): ?>
+    <dt><?php echo $this->escape($user->email) ?></dt>
+    <dd><?php echo $this->escape($user->username) ?></dd>
+    <?php endforeach ?>
+</dl>

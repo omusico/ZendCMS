@@ -2,6 +2,8 @@
 
 class Application_Model_User
 {
+    private $_myMapper;
+    
     protected $_id;
     protected $_email;
     protected $_username;
@@ -16,6 +18,11 @@ class Application_Model_User
     protected $_creationDate;
     protected $_updateDate;
     protected $_lastLogin;
+    
+    public function __construct()
+    {
+        $this->_myMapper = new Application_Model_UserMapper();
+    }
 
     public function __set($name, $value)
     {
@@ -50,6 +57,17 @@ class Application_Model_User
         }
         return $this;
     }
+    
+    /*
+     * MAPPER FUNCTIONS
+     */
+    
+    public function fetchAll()
+    {
+        return $this->_myMapper->fetchAll();
+    }
+    
+    /*************/
     
     public function getId()
     {
@@ -152,7 +170,7 @@ class Application_Model_UserMapper
     public function getDbTable()
     {
         if (null === $this->_dbTable) {
-            $this->setDbTable('Application_Model_DbTable_User');
+            $this->setDbTable('Application_Default_Model_DbTable_User');
         }
         return $this->_dbTable;
     }
