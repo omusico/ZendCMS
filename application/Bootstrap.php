@@ -3,12 +3,12 @@
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
 
     protected function _initAutoload() {
-        $autoLoader = Zend_Loader_Autoloader::getInstance();
-        $autoLoader->registerNamespace('Application')
-                ->setFallbackAutoloader(true)
-                ->suppressNotFoundWarnings(true);
+        $autoloader = new Zend_Application_Module_Autoloader(array(
+                    'namespace' => 'Application',
+                    'basePath' => dirname(__FILE__),
+                ));
 
-        return $autoLoader;
+        return $autoloader;
     }
 
     protected function _initDoctype() {
