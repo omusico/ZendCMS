@@ -170,7 +170,7 @@ class Application_Model_UserMapper
     public function getDbTable()
     {
         if (null === $this->_dbTable) {
-            $this->setDbTable('Application_Default_Model_DbTable_User');
+            $this->setDbTable('Application_Default_Model_DbTable_Users');
         }
         return $this->_dbTable;
     }
