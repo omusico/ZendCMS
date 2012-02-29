@@ -9,8 +9,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
                     'basePath' => dirname(__FILE__),
                 ));
 
-	//var_dump($autoloader);
-
         return $autoloader;
     }
 

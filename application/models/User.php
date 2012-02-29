@@ -170,7 +170,7 @@ class Application_Model_UserMapper
     public function getDbTable()
     {
         if (null === $this->_dbTable) {
-            $this->setDbTable('Application_Default_Model_DbTable_Users');
+            $this->setDbTable('Application_Model_DbTable_Users');
         }
         return $this->_dbTable;
     }
@@ -227,8 +227,8 @@ class Application_Model_UserMapper
         $resultSet = $this->getDbTable()->fetchAll();
         $users= array();
         foreach ($resultSet as $row) {
-            $entries[] = $this->setObject($row);
+            $users[] = $this->setObject($row);
         }
-        return $entries;
+        return $users;
     }
 }
